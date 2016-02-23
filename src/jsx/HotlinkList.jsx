@@ -9,9 +9,9 @@ export default class HotlinkList extends React.Component {
     			)
 	    	});
 		return (
-			<div className="hotlinksList">
+			<ul className="hotlinksList">
 				{hotlinks}
-			</div>
+			</ul>
 		)
 	}
 }
