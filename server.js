@@ -6,7 +6,7 @@ var server = app.listen(8000, function(){
 });
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/test');
+mongoose.connect('mongodb://localhost:27017/hotlinks');
 var Hotlink = mongoose.model('Hotlink', { hotlink: String })
 
 app.use(function(req, res, next) {
@@ -14,7 +14,14 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+app.use(express.static('dist'));
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.get('/', function(req, res) {
+	res.render('index.html');
+})
 
 app.post('/hotlinks', function(req, res) {
 	var hotlink = new Hotlink({ hotlink: req.body.hotlink});
