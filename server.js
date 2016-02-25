@@ -6,7 +6,7 @@ var server = app.listen(8000, function(){
 });
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/hotlinks');
+mongoose.connect(process.env.MONGOLAB_URI);
 var Hotlink = mongoose.model('Hotlink', { hotlink: String })
 
 app.use(function(req, res, next) {
