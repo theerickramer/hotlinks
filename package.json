@@ -2,10 +2,14 @@
   "name": "webpack-react",
   "version": "1.0.0",
   "description": "trying out webpack",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --inline --port 3000 --content-base dist/"
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "5.6.0",
+    "npm": "3.6.0"
   },
   "author": "eric kramer",
   "license": "ISC",
