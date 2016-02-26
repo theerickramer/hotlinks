@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var server = app.listen(8000, function(){
+var server = app.listen(process.env.PORT || 8000, function(){
 	console.log('Server listening on localhost:8000');
 });
 
