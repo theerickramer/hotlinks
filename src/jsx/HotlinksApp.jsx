@@ -13,7 +13,7 @@ class HotlinksApp extends React.Component {
 
 	componentDidMount() {
     $.ajax({
-    	url: 'http://localhost:8000/hotlinks',
+    	url: '/hotlinks',
     	type: 'GET',
     	dataType: 'JSON',
     	success: function(response) {
@@ -27,7 +27,7 @@ class HotlinksApp extends React.Component {
 
 	saveLink(hotlink) {
 		$.ajax({
-			url: 'http://localhost:8000/hotlinks',
+			url: '/hotlinks',
 			type: 'POST',
 			dataType: 'json',
 			data: {hotlink: hotlink},

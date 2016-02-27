@@ -96,7 +96,7 @@
 			key: 'componentDidMount',
 			value: function componentDidMount() {
 				_jquery2.default.ajax({
-					url: 'http://localhost:8000/hotlinks',
+					url: '/hotlinks',
 					type: 'GET',
 					dataType: 'JSON',
 					success: function (response) {
@@ -111,7 +111,7 @@
 			key: 'saveLink',
 			value: function saveLink(hotlink) {
 				_jquery2.default.ajax({
-					url: 'http://localhost:8000/hotlinks',
+					url: '/hotlinks',
 					type: 'POST',
 					dataType: 'json',
 					data: { hotlink: hotlink },
