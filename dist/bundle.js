@@ -19835,7 +19835,7 @@
 			null,
 			_react2.default.createElement(
 				"a",
-				{ key: props._id, className: "hotlink", href: props.url },
+				{ key: props.key, className: "hotlink", href: props.url },
 				props.url
 			)
 		);
