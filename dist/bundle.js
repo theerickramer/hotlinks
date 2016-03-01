@@ -110,21 +110,23 @@
 		}, {
 			key: 'saveLink',
 			value: function saveLink(hotlink) {
-				_jquery2.default.ajax({
-					url: '/hotlinks',
-					type: 'POST',
-					dataType: 'json',
-					data: { hotlink: hotlink },
-					success: function (response) {
-						console.log(response);
-						var hotlinks = this.state.data;
-						hotlinks.push({ hotlink: hotlink });
-						this.setState({ data: hotlinks });
-					}.bind(this),
-					error: function () {
-						console.log('Server Error');
-					}.bind(this)
-				});
+				if (hotlink !== '') {
+					_jquery2.default.ajax({
+						url: '/hotlinks',
+						type: 'POST',
+						dataType: 'json',
+						data: { hotlink: hotlink },
+						success: function (response) {
+							console.log(response);
+							var hotlinks = this.state.data;
+							hotlinks.push({ hotlink: hotlink });
+							this.setState({ data: hotlinks });
+						}.bind(this),
+						error: function () {
+							console.log('Server Error');
+						}.bind(this)
+					});
+				}
 			}
 		}, {
 			key: 'render',
