@@ -4,11 +4,12 @@
   "description": "save all your fave links",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "jest --watch",
+    "start": "node server.js",
+    "dev": "webpack-dev-server --hot --inline --port 3000 --content-base dist/"
   },
   "engines": {
-    "node": "5.6.0"
+    "node": "6.5.0"
   },
   "author": "eric kramer",
   "license": "ISC",
@@ -19,16 +20,20 @@
     "jquery": "^2.2.4",
     "mongoose": "^4.7.2",
     "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+    "react-dom": "^0.14.8",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
+    "babel-jest": "^17.0.2",
     "babel-loader": "^6.2.9",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.23.1",
+    "jest": "^17.0.3",
     "node-sass": "^3.13.0",
     "react-hot-loader": "^1.3.1",
+    "react-test-renderer": "^15.4.1",
     "sass-loader": "^3.2.3",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
