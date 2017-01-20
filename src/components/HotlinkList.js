@@ -1,5 +1,5 @@
 import React from 'react';
-import Hotlink from './Hotlink.jsx';
+import Hotlink from './Hotlink';
 
 export default class HotlinkList extends React.Component {
 	render() {

@@ -6,34 +6,36 @@ var server = app.listen(process.env.PORT || 8000, function(){
 });
 
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise; // replace default deprecated mpromise
 mongoose.connect(process.env.MONGOLAB_URI);
 var Hotlink = mongoose.model('Hotlink', { hotlink: String })
 
 app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+	res.set('Content-Type', 'application/json');
+  next();
 });
 
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 app.use(express.static('dist'));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
 	res.render('index.html');
 })
 
 app.post('/hotlinks', function(req, res) {
-	var hotlink = new Hotlink({ hotlink: req.body.hotlink});
-	hotlink.save(function(err, hotlink) {
-		if (err) {
-			console.error(err);
-			res.json('Error: ' + req.body.hotlink + ' could not be saved');
-		} else {
+	var hotlink = new Hotlink({ hotlink: req.body.hotlink });
+	hotlink.save()
+		.then(function(){
 			console.log(hotlink + ' saved')
 			res.json(req.body.hotlink + ' saved');
-		}
-	})
+		})
+		.catch(function(error) { 
+			console.error(error)
+		})
 });
 
 app.get('/hotlinks', function(req, res) {
@@ -42,7 +44,7 @@ app.get('/hotlinks', function(req, res) {
 			console.error(err);
 			res.json('Error: Hotlinks could not be loaded');
 		} else {
-			res.json(JSON.stringify(hotlinks));
+			res.json(hotlinks);
 		}
 	})
 });
