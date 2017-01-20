@@ -2,7 +2,7 @@
   "name": "hotlinks",
   "version": "1.0.0",
   "description": "the hotttest links on the fucking planet",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
@@ -10,6 +10,9 @@
     "build": "webpack --config webpack.config.prod.js",
     "test": "jest",
     "test:watch": "npm test -- --watch"
+  },
+  "engines": {
+    "node": "6.9.2"
   },
   "license": "MIT",
   "dependencies": {
