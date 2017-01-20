@@ -45,6 +45,6 @@ export function postHotlink(hotlink) {
 							}
 						})
             .catch(error => console.error(error))
-            .then(dispatch(getHotlinks()))
+            .then(() => { dispatch(getHotlinks())})
     }
 }
