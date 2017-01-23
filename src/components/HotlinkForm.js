@@ -4,7 +4,7 @@ export default class HotlinkForm extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.onLinkSubmit(this.refs.hotlinkInput.value);
-		this.refs.hotlink.value ='';
+		this.refs.hotlinkInput.value ='';
 	}
 	
 	render() {
