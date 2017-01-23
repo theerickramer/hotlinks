@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
 	entry: path.resolve(__dirname, 'src/index.js'),
 	output: {
-		path: __dirname,
-		filename: 'dist/bundle.js'
+		path: path.resolve(__dirname, 'dist/'),
+		filename: 'bundle.js',
+		publicPath: '/'
 	},
 	module: {
 		loaders: [{
@@ -16,8 +18,14 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			filename: 'public/index.html',
+			filename: path.resolve(__dirname, 'views/index.html'),
 			template: 'template.html',
-		})
+		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: JSON.stringify('production')
+			}
+		}),
+		new webpack.optimize.UglifyJsPlugin()
 	]
 }
