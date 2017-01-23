@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hotlink = (props) =>
-	<li><a className="hotlink" href={props.url}>{props.url}</a></li>;
+const Hotlink = ({ url, id, deleteLink }) =>
+	<li><a className="hotlink" href={url}>{url}</a><button onClick={deleteLink}>X</button></li>;
 
 export default Hotlink;

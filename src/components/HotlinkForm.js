@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class HotlinkForm extends React.Component {
+export default class HotlinkForm extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.onLinkSubmit(this.refs.hotlink.value);
+		this.props.onLinkSubmit(this.refs.hotlinkInput.value);
 		this.refs.hotlink.value ='';
 	}
 	
 	render() {
 		return (
 			<form onSubmit={this.handleSubmit.bind(this)}>
-				<input type="text" name="href" placeholder="http://hotlinks.com" ref="hotlink" />
+				<input type="text" name="href" placeholder="http://hotlinks.com" ref="hotlinkInput" />
 				<button>Save</button>
 			</form>
 		)
