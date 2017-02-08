@@ -6,7 +6,7 @@ import HotlinkForm from '../components/HotLinkForm';
 import { getHotlinks, postHotlink, deleteHotlink } from '../store/actions'
 // require('../scss/style.scss');
 
-class App extends Component {
+export class App extends Component {
 	constructor(props) {
 		super(props)
 		this.dispatch = props.dispatch;
