@@ -9,13 +9,15 @@
     "dev": "webpack-dev-server --hot --inline --port 3000 --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "test:coverage": "npm test -- --coverage"
   },
   "engines": {
     "node": "6.9.2"
   },
   "license": "MIT",
   "dependencies": {
+    "babel-polyfill": "^6.22.0",
     "body-parser": "^1.16.0",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
@@ -38,7 +40,12 @@
     "html-webpack-plugin": "^2.24.1",
     "jest": "^18.1.0",
     "react-addons-test-utils": "^15.4.2",
-    "webpack": "^1.14.0",
+    "webpack": "^2.2.1",
     "webpack-dev-server": "^1.16.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/**.js"
+    ]
   }
 }
