@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { expect } from 'chai';
+import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -30,6 +31,7 @@ describe('<App />', () => {
         hotlinks: initialItems
       };
       store = mockStore(initialState);
+			sinon.spy(store, 'dispatch')
     });
 
     describe('state provided by store', () => {
@@ -39,6 +41,9 @@ describe('<App />', () => {
       it('passes down items', () => {
         expect(connectedApp.find('App').props().hotlinks).to.equal(initialItems);
       })
+			it('componentDidMount calls dispatch', () => {
+				expect(store.dispatch.called).to.be.true
+			})
     })
   })
 })
