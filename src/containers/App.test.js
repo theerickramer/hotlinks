@@ -44,6 +44,7 @@ describe('<App />', () => {
 			it('componentDidMount calls dispatch', () => {
 				expect(store.dispatch.called).to.be.true
 			})
+			// add nock to get rid of json error caused by getHotlinks() fetch
     })
   })
 })
