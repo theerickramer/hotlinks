@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import fetch from 'isomorphic-fetch';
-import Hotlinks from '../components/Hotlinks';
+import HotlinkList from '../components/HotlinkList';
 import HotlinkForm from '../components/HotLinkForm';
 import { getHotlinks, postHotlink, deleteHotlink } from '../store/actions'
 // require('../scss/style.scss');
 
-class App extends Component {
+export class App extends Component {
 	constructor(props) {
 		super(props)
 		this.dispatch = props.dispatch;
@@ -32,7 +32,7 @@ class App extends Component {
 			<div>
 				<h1>Hotlinks</h1>
 				<HotlinkForm onLinkSubmit={this.saveLink.bind(this)} />
-				<Hotlinks onLinkDelete={this.deleteLink.bind(this)} data={this.props.hotlinks} />
+				<HotlinkList onLinkDelete={this.deleteLink.bind(this)} data={this.props.hotlinks} />
 			</div>
 		);
 	}
