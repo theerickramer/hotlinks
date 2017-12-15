@@ -4,7 +4,7 @@ import fetch from 'isomorphic-fetch';
 import HotlinkList from '../components/HotlinkList';
 import HotlinkForm from '../components/HotLinkForm';
 import { getHotlinks, postHotlink, deleteHotlink } from '../store/actions'
-// require('../scss/style.scss');
+require('./App.scss');
 
 export class App extends Component {
 	constructor(props) {
