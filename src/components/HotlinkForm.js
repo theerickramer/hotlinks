@@ -11,7 +11,7 @@ export default class HotlinkForm extends Component {
 		return (
 			<form onSubmit={this.handleSubmit.bind(this)}>
 				<input type="text" name="href" placeholder="http://hotlinks.com" ref="hotlinkInput" />
-				<button>Save</button>
+				<button>+</button>
 			</form>
 		)
 	}

@@ -1,8 +1,32 @@
+body {
+  padding: 40px;
+  background: #000000;
+  font-family: 'Lusitana', serif;
+}
+
 h1 {
-  font-size: 5em
+  font-size: 5em;
+}
+
+input {
+  padding: 4px;
+  height: 20px;
 }
 
 ul {
   list-style: none;
   padding: 0;
+}
+
+a {
+  color: red;
+}
+
+button {
+  margin: 10px;
+  padding: 4px;
+  width: 40px;
+  height: 30px;
+  font-weight: bold;
+  cursor: pointer;
 }
