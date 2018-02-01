@@ -34,7 +34,7 @@ export function removeHotlink(hotlink) {
 export function getHotlinks() {
 	return dispatch => {
 		dispatch(requestHotlinks());
-		return fetch('http://localhost:8000/hotlinks')
+		return fetch('/hotlinks')
 			.then(response => response.json())
 			.then(json => dispatch(receiveHotlinks(json)))
 			.catch(error => console.error(error))
@@ -44,7 +44,7 @@ export function getHotlinks() {
 export function postHotlink(hotlink) {
 	return dispatch => {
 		dispatch(addHotlink(hotlink))
-		return fetch('http://localhost:8000/hotlinks', {
+		return fetch('/hotlinks', {
 			method: 'POST',
 			body: JSON.stringify({ hotlink: hotlink }),
 			headers: {
@@ -59,7 +59,7 @@ export function postHotlink(hotlink) {
 export function deleteHotlink(id, hotlink) {
 	return dispatch => {
 		dispatch(removeHotlink(hotlink))
-		return fetch('http://localhost:8000/hotlinks', {
+		return fetch('/hotlinks', {
 			method: 'DELETE',
 			body: JSON.stringify({ id: id }),
 			headers: {
