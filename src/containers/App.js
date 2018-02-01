@@ -32,7 +32,7 @@ export class App extends Component {
 			<div>
 				<h1 className="font-effect-fire-animation">Hotlinks</h1>
 				<HotlinkForm onLinkSubmit={this.saveLink.bind(this)} />
-				<HotlinkList onLinkDelete={this.deleteLink.bind(this)} data={this.props.hotlinks} />
+				<HotlinkList onLinkDelete={this.deleteLink.bind(this)} data={this.props.hotlinks.reverse()} />
 			</div>
 		);
 	}
