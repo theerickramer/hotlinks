@@ -6,7 +6,7 @@ export default class HotlinkList extends Component {
 			return(
 				<li key={index}>
 					<a className="hotlink" href={data.hotlink}>{data.hotlink}</a>
-					<button onClick={() => { this.props.onLinkDelete(data._id, data.hotlink) }}>X</button>
+					{/* <button onClick={() => { this.props.onLinkDelete(data._id, data.hotlink) }}>X</button> */}
 				</li>
 			)
 		});
