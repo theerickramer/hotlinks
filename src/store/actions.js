@@ -1,4 +1,6 @@
 import fetch from 'isomorphic-fetch';
+const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8000/hotlinks' :'/hotlinks';
+
 export const REQUEST_HOTLINKS = 'REQUEST_HOTLINKS';
 export const RECEIVE_HOTLINKS = 'RECEIVE_HOTLINKS';
 export const ADD_HOTLINK = 'ADD_HOTLINK';
@@ -34,7 +36,7 @@ export function removeHotlink(hotlink) {
 export function getHotlinks() {
 	return dispatch => {
 		dispatch(requestHotlinks());
-		return fetch('/hotlinks')
+		return fetch(url)
 			.then(response => response.json())
 			.then(json => dispatch(receiveHotlinks(json)))
 			.catch(error => console.error(error))
@@ -44,7 +46,7 @@ export function getHotlinks() {
 export function postHotlink(hotlink) {
 	return dispatch => {
 		dispatch(addHotlink(hotlink))
-		return fetch('/hotlinks', {
+		return fetch(url, {
 			method: 'POST',
 			body: JSON.stringify({ hotlink: hotlink }),
 			headers: {
@@ -59,7 +61,7 @@ export function postHotlink(hotlink) {
 export function deleteHotlink(id, hotlink) {
 	return dispatch => {
 		dispatch(removeHotlink(hotlink))
-		return fetch('/hotlinks', {
+		return fetch(url, {
 			method: 'DELETE',
 			body: JSON.stringify({ id: id }),
 			headers: {
