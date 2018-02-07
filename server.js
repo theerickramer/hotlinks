@@ -32,7 +32,7 @@ app.get('/hotlinks', function(req, res) {
 			console.error(err);
 			res.json('Error: Hotlinks could not be loaded');
 		} else {
-			res.json(hotlinks);
+			res.json(hotlinks.reverse());
 		}
 	})
 });
