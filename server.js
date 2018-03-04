@@ -7,7 +7,11 @@ var server = app.listen(process.env.PORT || 8000, function(){
 
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise; // replace default deprecated mpromise
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(
+  process.env.NODE_ENV === 'production'
+    ? process.env.MONGOLAB_URI
+    : 'mongodb://localhost:27017/hotlinks'
+);
 var Hotlink = mongoose.model('Hotlink', { hotlink: String })
 
 app.use(function(req, res, next) {
