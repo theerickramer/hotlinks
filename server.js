@@ -10,7 +10,8 @@ mongoose.Promise = global.Promise; // replace default deprecated mpromise
 mongoose.connect(
   process.env.NODE_ENV === 'production'
     ? process.env.MONGOLAB_URI
-    : 'mongodb://localhost:27017/hotlinks'
+    : process.env.HOTLINKS_DEV
+    // : process.env.HOTLINKS_PROD
 );
 var Hotlink = mongoose.model('Hotlink', { hotlink: String })
 

@@ -36,7 +36,9 @@ module.exports = {
       template: 'template.html'
     }),
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development'
+      NODE_ENV: 'development',
+      HOTLINKS_DEV: process.env.HOTLINKS_DEV,
+      HOTLINKS_PROD: process.env.HOTLINKS_PROD
     })
   ],
   devtool: 'cheap-module-eval-source-map'
